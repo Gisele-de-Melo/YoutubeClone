@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Youtube Clone</title>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+        <link href="css/global.css" rel="stylesheet">
+        <link href="css/style.css" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    </head>
+
+    <body onload="loadButtons(); loadVideos()">
+        <header>
+            <div class="header-left">
+                <a href="#" class="menu-button" onclick="menuClose()">
+                    <div class="menu">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </a>
+    
+                <a href="#" class="logo">
+                  <img src="assets/logo.svg" alt="youtube"/>
+                  <span>BR</span>
+                </a>
+            </div>
+
+
+            <div class="header-center-right">
+                <div>
+                    <!-- não remover essa div, ela serve para alinhar o search box ao centro -->
+                </div>
+
+                <div class="header-center">
+                    <div class="search-box">
+                        <input id="search" class="busca" type="search" placeholder="Pesquisar" />
+                        <div class="search-icons">
+                            <a href="#" >
+                                <img id="keyboard" class="keyboard" src="./assets//teclado.svg" />  
+                            </a>
+                            <a href="#" tool-tip = "Pesquisar">
+                                <div class="search-button">
+                                    <img class="svg" src="./assets/search.svg" alt="search"/>
+                                </div>
+                            </a>   
+                        </div>
+                      
+                    </div>
+        
+                    <a href="#" tool-tip = "Pesquisar com sua voz">
+                        <div class="icons">
+                            <img src="./assets/microfone.svg" alt="microfone"/>
+                        </div>
+                    </a> 
+                </div>
+    
+                <div class="header-right">
+                    <div class="display">
+                        <div class="icons">
+                            <a href="#" tool-tip = "Pesquisar">
+                                <img class="svg" src="./assets/search.svg" alt="search"/>
+                            </a>  
+                        </div>
+    
+                        <div class="icons" >
+                            <a href="#" tool-tip = "Pesquisar com sua voz">
+                                <img src="./assets/microfone.svg" alt="microfone"/>
+                            </a> 
+                        </div>
+                    </div>
+
+                    <div class="icons">
+                        <a href="#" tool-tip = "Criar">
+                            <img src="./assets/create-video.svg" alt="create video"/>
+                        </a>   
+                    </div>
+        
+                    <div class="icons">
+                        <a href="#" tool-tip = "Aplicativos do Youtube">
+                            <img src="./assets/apps.svg" alt="apps"/>
+                        </a>   
+                    </div>
+        
+                    <div class="icons">
+                        <a href="#" tool-tip = "Notificações">
+                            <div class="notification-qty">
+                                9+
+                            </div>
+
+                            <img src="./assets/notifications.svg" alt="notifications"/>
+                        </a>   
+                    </div>            
+                    
+                    <a href="#" >
+                        <div class="avatar" alt="avatar">
+                            A
+                        </div>
+                    </a> 
+                </div>
+            </div>
+
+        </header>
+        
+
+        <main>
+
+            <sidebar id="sidebar-main" >                
+                <div class="sidebar-1">
+                    <div class="sidebar-row" id="sidebar-row-home"> 
+                        <a href="#" class="sidebar-link" id="home" onclick="buttonClicked(id)">
+                            <div class="icons" id="div-home">
+
+                                <img src="./assets/home.svg" alt="home"/>
+                            </div>
+                            <span>Início</span>
+                        </a>
+                    </div>
+                    
+                    <div class="sidebar-row"> 
+                        <a href="#" class="sidebar-link" id="explorer" onclick="buttonClicked(id)">
+                            <div class="icons" id="div-explorer">
+                                <img src="./assets/explorer.svg" alt="explorer"/>
+                            </div>
+                            <span>Explorar</span>
+                        </a>
+                        
+                    </div>
+    
+                    <div class="sidebar-row"> 
+                        <a href="#" class="sidebar-link" id="subs" onclick="buttonClicked(id)">
+                            <div class="icons" id="div-subs"> 
+                                <img src="./assets/subs.svg" alt="registration"/>
+                            </div>    
+                            <span>Inscrições</span>
+                        </a>
+                    </div>                                    
+                </div>
+    
+    
+                <div class="sidebar-2">
+                    <div class="sidebar-row"> 
+                        <a href="#" class="sidebar-link" id="library" onclick="buttonClicked(id)">
+                            <div class="icons" id="div-library">
+                                <img src="./assets/library.svg" alt="library"/>
+                            </div>
+                            <span>Biblioteca</span>
+                        </a>
+                    </div>
+                    
+                    <div class="sidebar-row"> 
+                        <a href="#" class="sidebar-link" id="history" onclick="buttonClicked(id)">
+                            <div class="icons" id="div-history">
+                                <img src="./assets/history.svg" alt="history"/>
+                            </div>
+                            <span>Histórico</span>
+                        </a>
+                        
+                    </div>
+    
+                    <div class="sidebar-row"> 
+                        <a href="#" class="sidebar-link" id="videos" onclick="buttonClicked(id)">
+                            <div class="icons" id="div-videos">
+                                <img src="./assets/video.svg" alt="seus videos"/>
+                            </div>    
+                            <span>Seus vídeos</span>
+                        </a>
+                    </div>    
+                    
+                    <div class="sidebar-row"> 
+                        <a href="#" class="sidebar-link" id="time" onclick="buttonClicked(id)">
+                            <div class="icons" id="div-time">
+                                <img src="./assets/time.svg" alt="assistir mais tarde"/>
+                            </div>    
+                            <span>Assistir mais tarde</span>
+                        </a>
+                    </div>    
+                    
+                    <div class="sidebar-row"> 
+                        <a href="#" class="sidebar-link" id="like" onclick="buttonClicked(id)">
+                            <div class="icons" id="div-like">
+                                <img src="./assets/like.svg" alt="marcados como gostei"/>
+                            </div>    
+                            <span>Marcados como ...</span>
+                        </a>
+                    </div>    
+                    
+                    <div class="sidebar-row"> 
+                        <a href="#" class="sidebar-link" id="arrow" onclick="buttonClicked(id)">
+                            <div class="icons" id="div-arrow">
+                                <img src="./assets/arrow-down.svg" alt="mostrar mais"/>
+                            </div>    
+                            <span>Mostrar mais</span>
+                        </a>
+                    </div>                     
+                </div>
+
+            </sidebar>
+            
+
+            <sidebar id="sidebar-secondary" class="sidebar-secondary">
+                <div class="sidebar-row" id="sidebar-row-home"> 
+                    <a href="#" class="sidebar-link" id="home-secondary" onclick="buttonClicked(id)">
+                        <div class="icons" id="div-home-secondary">
+
+                            <img src="./assets/home.svg" alt="home"/>
+                           
+                        </div>
+                        <span>Início</span>
+                        
+                    </a>
+                </div>
+                
+                <div class="sidebar-row"> 
+                    <a href="#" class="sidebar-link" id="explorer-secondary" onclick="buttonClicked(id)">
+                        <div class="icons" id="div-explorer-secondary">
+                            <img src="./assets/explorer.svg" alt="explorer"/>
+                        </div>
+                        <span>Explorar</span>
+                    </a>
+                    
+                </div>
+
+                <div class="sidebar-row"> 
+                    <a href="#" class="sidebar-link" id="subs-secondary" onclick="buttonClicked(id)">
+                        <div class="icons" id="div-subs-secondary"> 
+                            <img src="./assets/subs.svg" alt="registration"/>
+                        </div>    
+                        <span>Inscrições</span>
+                    </a>
+                </div>     
+
+                <div class="sidebar-row"> 
+                    <a href="#" class="sidebar-link" id="library-secondary" onclick="buttonClicked(id)">
+                        <div class="icons" id="div-library-secondary">
+                            <img src="./assets/library.svg" alt="library"/>
+                        </div>
+                        <span>Biblioteca</span>
+                    </a>
+                </div>
+            </sidebar>
+    
+            <section>
+                <div id="top-grid" class="top-grid">
+                    <div id="top-grid-first"class="top-grid-first hide">
+                        <a href="#" tool-tip="Anterior" onclick="scrolllLeft()">
+                           <
+         
+                        </a>
+                    </div>
+                    <div id="top-grid-middle" class="top-grid-middle">
+    
+                    </div>
+                    <div id="top-grid-last" class="top-grid-last">
+                        <a href="#"  tool-tip="Próximo" onclick="scrollRigth()">
+                           >
+         
+                        </a>
+                    </div>                    
+                </div>
+                <div id="video-grid" class="video-grid" >
+                    <!-- os cards são carregados pelo javascript -->
+                </div>                
+            </section>
+
+        </main>
+
+        <!-- <div id="modal" class="modal">
+
+        </div> -->
+
+
+
+        <!-- <h1>Hello World</h1> -->
+        <script src="script.js"></script>
+    </body>
+</html>

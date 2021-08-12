@@ -207,6 +207,7 @@ let themes =
     'Ações',
     'CriptoMoedas'
   ]
+onResize();
 
 function loadButtons(){
   let top = document.querySelector('#top-grid-middle');
@@ -539,30 +540,27 @@ function scrollRigth(){
   validateScroll();
 }
 
-// function scrollIntoView(selector, offset = 0) {
-  // window.scroll(document.querySelector(selector).offsetLeft - offset, 0 );
-  // console.log('entrou');
-  // console.log(selector);
-  // document.getElementById(selector).scrollLeft = document.getElementById(selector).offsetLeft + offset;
-  
-// }
-
-window.onresize = function(event) {
-  // if (window.innerWidth < 768) {
-  //   console.log("Largura da janela menor que 768 px");
-  // }
+function onResize(){
   if (window.matchMedia("(max-width: 500px)").matches) {
     offSet = 60;
   }else{
     offSet = 200;
   };
 
+  if (window.matchMedia("(max-width: 415px)").matches) {
+    isModal = true;
+    document.getElementById('sidebar-main').style.width = "100% !important";
+    document.getElementById('sidebar-secondary').style.display = "none";  
+    document.getElementById('sidebar-main').classList.add('sidebar-main');
+  }
+  else
   if (window.matchMedia("(max-width: 807px)").matches) {
     document.getElementById('sidebar-main').style.width = "0px !important";
     document.getElementById('sidebar-secondary').style.display = "none";  
     document.getElementById('sidebar-main').classList.add('sidebar-main');
     
     isModal = true;
+    console.log('tablet');
   }
   else
   if (window.matchMedia("(max-width: 1312px)").matches) {
@@ -571,6 +569,7 @@ window.onresize = function(event) {
     document.querySelector('section').classList.remove('modal');
     menuClose();
     isModal = false;
+    console.log('pc1');
   }
   else
   if (window.matchMedia("(min-width: 1312px)").matches)  
@@ -580,12 +579,16 @@ window.onresize = function(event) {
     document.querySelector('section').classList.remove('modal');
     menuClose();
     isModal = false;
+    console.log('pc2');
   }else{
     isModal = false;
+    console.log('indefinido');
   } 
+}
 
+window.onresize = function(event) {
+  onResize();
   getScrollValue();
   validateScroll();
-
 };
 

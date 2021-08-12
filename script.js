@@ -46,6 +46,7 @@ let searchFocused = false;
 let keyboard = document.querySelector("#keyboard");
 let scrollValueLeft = 0;
 let scrollValueRight = 0;
+let offSet = 200;
 
 //imagens dos botões clicados e não clicados
 let homeSvg = 
@@ -526,13 +527,13 @@ function validateScroll(){
 }
 
 function scrolllLeft(){
-  document.getElementById('top-grid-middle').scrollLeft -= document.getElementById('top-grid-middle').offsetLeft + 50;
+  document.getElementById('top-grid-middle').scrollLeft -= document.getElementById('top-grid-middle').offsetLeft + offSet;
   getScrollValue();
   validateScroll();
 }
 
 function scrollRigth(){
-  document.getElementById('top-grid-middle').scrollLeft += document.getElementById('top-grid-middle').offsetLeft + 50;
+  document.getElementById('top-grid-middle').scrollLeft += document.getElementById('top-grid-middle').offsetLeft + offSet;
 
   getScrollValue();
   validateScroll();
@@ -550,6 +551,11 @@ window.onresize = function(event) {
   // if (window.innerWidth < 768) {
   //   console.log("Largura da janela menor que 768 px");
   // }
+  if (window.matchMedia("(max-width: 500px)").matches) {
+    offSet = 60;
+  }else{
+    offSet = 200;
+  };
 
   if (window.matchMedia("(max-width: 807px)").matches) {
     document.getElementById('sidebar-main').style.width = "0px !important";
